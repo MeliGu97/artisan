@@ -20,5 +20,6 @@ export class MaterialComponent implements OnInit {
     this.materialService.getMaterials().subscribe(data => {
       this.materials = data;
     });
+    console.log("this.materials ; ", this.materials)
   }
 }
