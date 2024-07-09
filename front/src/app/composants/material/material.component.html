@@ -1,7 +1,30 @@
-<p>material works!</p>
-<div *ngFor="let material of materials">
-    <h2>{{ material.label }}</h2>
-    <p>{{ material.company }}</p>
-    <p>{{ material.description }}</p>
-    <p>{{ material.color }}</p>
-</div>
+<section>
+    <article class="espacement-entre marges">
+        <div class="container-matiere">
+            <h3 class="titre-article">Matières</h3>
+            <ul class="espacement-autour">
+                <li *ngFor="let material of materials">
+                    <div class="card-matiere" [ngStyle]="{'background': material.color}"
+                        (click)="onCardClick(material)">
+                        <h2>{{ material.label }}</h2>
+                        <p>{{ material.company }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container-detail-matiere">
+            <div *ngIf="!selectedMaterial">
+                <h3>Détail</h3>
+                <p>Sélectionner une matière ci-contre pour voir le détail de celle-ci</p>
+            </div>
+            <div *ngIf="selectedMaterial">
+                <div class="cote-cote">
+                    <div class="rectangle" [ngStyle]="{'background': selectedMaterial.color}"></div>
+                    <h3>{{ selectedMaterial.label }}</h3>
+                </div>
+                <p>{{ selectedMaterial.description }}</p>
+            </div>
+        </div>
+    </article>
+</section>

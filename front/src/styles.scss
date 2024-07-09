@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0px;
+    background-color: whitesmoke;
+  }
+
+  .espacement-entre{
+    display: flex;
+    justify-content: space-between;
+  }
+  .espacement-autour{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.cote-cote {
+    display: flex;
+    align-items: center;
+}
+.marges{
+    margin-left: 190px;
+    margin-right:20px;
+    padding-top: 25px;
+}
+
+h2, h3{
+    margin: 2px;
+}
+
+.card{
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: #00000026 1.95px 1.95px 2.6px;
+}
+
+.rectangle{
+    height: 20px;
+    width: 40px;
+    border-radius: 2px;
+    margin-right: 8px;
+}

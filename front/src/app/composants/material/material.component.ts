@@ -13,6 +13,7 @@ import { MaterialService } from '../../services/material.service';
 })
 export class MaterialComponent implements OnInit {
   materials: any[] = [];
+  selectedMaterial: any | null = null;
 
   constructor(private materialService: MaterialService) {}
 
@@ -21,5 +22,10 @@ export class MaterialComponent implements OnInit {
       this.materials = data;
     });
     console.log("this.materials : ", this.materials)
+  }
+
+  // Méthode pour gérer le clic sur une carte
+  onCardClick(material: any): void {
+    this.selectedMaterial = material;
   }
 }

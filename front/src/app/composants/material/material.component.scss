@@ -1,0 +1,70 @@
+.titre-article{
+    margin-left: 3%;
+    margin: 2px;
+}
+.container-matiere{
+    width: 50%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: #00000026 1.95px 1.95px 2.6px;
+}
+.container-detail-matiere{
+    width: 40%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 2px;
+    box-shadow: #00000026 1.95px 1.95px 2.6px;
+}
+// ------------- liste ----
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// ------------- card ----
+.card-matiere{
+    display: inline-block;
+    word-wrap: break-word;
+    vertical-align: top;
+    position: relative; 
+    min-width: 150px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.card-matiere h2, .card-matiere p{
+    margin: 2px;
+    color: white;
+}
+
+// telephone
+@media (min-width: 0px) and (max-width: 768px) {
+    .marges{
+        margin-left: 0%;
+    }
+    .container-matiere{
+        width: 100%;
+    }
+    .container-detail-matiere{
+        width: 100%;
+    }
+}
+
+//  tablette
+@media (min-width: 768px) and (max-width: 1024px){
+    .marges{
+        margin-left: 15%;
+    }
+
+    .card{
+        min-width: 100px;
+        margin: 2px 6px;
+    }
+
+
+}
