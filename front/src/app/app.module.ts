@@ -1,27 +1,27 @@
+// logiquement ne sert à rien car app.component.ts est en standlone:true => plus besoin de module
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { AppRoutesModule } from './app.routes';
-import { RouterModule } from '@angular/router'
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
-import { ApiService } from './api.service';
-import { AppComponent } from './app.component';
-import { MaterialComponent } from './composants/material/material.component';
+import { FurnitureService } from "./services/furniture.service";
+import { MaterialService } from './services/material.service';
+import { AppRoutesModule } from './app.routes';
 
 @NgModule({
-  declarations: [
-    
-  ],
+  declarations: [],
   imports: [
+    CommonModule,
     BrowserModule,
+    AppModule,
+    RouterModule,
     HttpClientModule,
     AppRoutesModule,
-    RouterModule
   ],
   providers: [
-    ApiService,
-    provideHttpClient() 
+    FurnitureService,
+    MaterialService,
   ],
 
 })
