@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 
-const Furniture =  require('./furniture.schema');
-const Material =  require('./material.schema');
-const User =  require('./user.schema');
+const Furniture =  require('./furniture');
+const Material =  require('./material');
+const User =  require('./user');
 
 // Middleware
 app.use(bodyParser.json());
