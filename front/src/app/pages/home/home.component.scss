@@ -35,3 +35,11 @@ h2{
     background-size: 10px 10px;
     background-position: 0 0, 50px 50px;
 }
+
+// telephone
+@media (min-width: 0px) and (max-width: 768px) {
+    .container-furniture-type{
+        width: 95%;
+
+    }
+}

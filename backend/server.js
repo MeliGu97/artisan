@@ -39,6 +39,17 @@ app.get('/api/materials', async (req, res) => {
     }
   });
 
+  // Route pour récupérer les meubles
+app.get('/api/furnitures', async (req, res) => {
+  try {
+    const furnitures = await Furniture.find().populate('materialsId');
+    console.log(furnitures);
+    res.json(furnitures);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

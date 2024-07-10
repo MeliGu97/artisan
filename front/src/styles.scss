@@ -18,9 +18,7 @@ body {
     align-items: center;
 }
 .marges{
-    margin-left: 190px;
-    margin-right:20px;
-    padding-top: 25px;
+    margin: 15px 20px 15px 190px;
 }
 
 h2, h3{
@@ -39,4 +37,15 @@ h2, h3{
     width: 40px;
     border-radius: 2px;
     margin-right: 8px;
+}
+
+// telephone
+@media (min-width: 0px) and (max-width: 768px) {
+    .marges{
+        margin-left: 0px;
+    }
+    .card{
+        width: 95%;
+        margin: 2%;
+    }
 }

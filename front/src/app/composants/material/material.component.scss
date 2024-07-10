@@ -55,16 +55,10 @@ li {
     }
 }
 
-//  tablette
-@media (min-width: 768px) and (max-width: 1024px){
-    .marges{
-        margin-left: 15%;
+// telephone
+@media (min-width: 0px) and (max-width: 768px) {
+    .container-matiere{
+        width: 95%;
+        margin-left: 2%;
     }
-
-    .card{
-        min-width: 100px;
-        margin: 2px 6px;
-    }
-
-
 }

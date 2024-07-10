@@ -1,0 +1,28 @@
+<section class="marges">
+    <article class="card">
+        <h3 class="titre-article">Réalisations</h3>
+        <table>
+            <thead>
+                <tr style="background-color: rgb(211, 216, 216);">
+                    <th scope="col" style="width: 15%;">Nom</th>
+                    <th scope="col" style="width: 10%; padding: 0px 20px;">Type</th>
+                    <th scope="col" style="width: 60%;">Matière</th>
+                    <th scope="col" style="width: 5%; padding: 0px 20px;">Quantité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let furniture of furnitures">
+                    <th scope="row" style="text-align: left; padding: 0px 10px;">{{ furniture.name }}</th>
+                    <td style="text-align: center; padding: 0px 10px;">{{ furniture.category }}</td>
+                    <td class="cote-cote" style="padding: 0px 10px;">
+                        <div *ngFor="let material of furniture.materialsId" class="cote-cote">
+                            <div class="rectangle" [ngStyle]="{'background': material.color}"></div>
+                            <p style="margin-right: 8px;">{{ material.label }}</p>
+                        </div>
+                    </td>
+                    <td style="text-align: center;">{{ furniture.quantity }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+</section>
