@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { GraphBarreComponent } from './composants/graph-barre/graph-barre.component';
@@ -15,6 +16,7 @@ import { AppRoutesModule } from './app.routes';
   imports: [
     CommonModule,
     BrowserModule,
+    FormsModule,
     AppModule,
     RouterModule,
     HttpClientModule,

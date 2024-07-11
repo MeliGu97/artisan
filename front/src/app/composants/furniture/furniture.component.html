@@ -1,3 +1,25 @@
+<article class="container-tableau" style="margin-bottom: 20px;">
+    <div class="cote-cote espacement-entre">
+        <div class="card" style="width: 45%;">
+            <h3>Nombre d'ocurrence de matière par Armoire</h3>
+            <ul>
+                <li *ngFor="let materialId of materialUsage | keyvalue">
+                    id de la matière : {{ materialId.key }} - utilisée {{ materialId.value }} fois
+                </li>
+            </ul>
+        </div>
+
+        <div class="card" style="width: 45%;">
+            <h3>Nombre d'ocurrence de matière par Etageres</h3>
+            <ul>
+                <li *ngFor="let materialId of materialUsageInEtageres | keyvalue">
+                    id de la matière : {{ materialId.key }} - utilisée {{ materialId.value }} fois
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</article>
 <article class="container-tableau">
     <div class="card">
         <h3 class="titre-article">Réalisations</h3>
@@ -48,24 +70,5 @@
         <div *ngIf="furnitures.length === 0">
             Aucun meuble trouvé.
         </div> -->
-    </div>
-</article>
-<article class="card" style="margin: 20px;">
-    <div>
-        <h3>Nombre d'ocurrence de matière par Armoire</h3>
-        <ul>
-            <li *ngFor="let materialId of materialUsage | keyvalue">
-                id de la matière : {{ materialId.key }} - utilisée {{ materialId.value }} fois
-            </li>
-        </ul>
-    </div>
-
-    <div>
-        <h3>Nombre d'ocurrence de matière par Etageres</h3>
-        <ul>
-            <li *ngFor="let materialId of materialUsageInEtageres | keyvalue">
-                id de la matière : {{ materialId.key }} - utilisée {{ materialId.value }} fois
-            </li>
-        </ul>
     </div>
 </article>

@@ -29,6 +29,46 @@ app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
+// Routes pour l'inscription et la connexion
+
+app.post('/api/users/login', async (req, res) => {
+  console.log("req.body : ", req.body)
+  try {
+      const { username, password } = req.body;
+      console.log("username in  : ", username)
+      const user = await User.findOne({ username });
+      console.log("user : ", user)
+      if (!user) {
+          return res.status(400).send({ error: 'Invalid credentials' });
+      }
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+          return res.status(400).send({ error: 'Invalid credentials' });
+      }
+      const token = jwt.sign({ _id: user._id }, 'secretkey', { expiresIn: '1h' });
+      res.send({ token });
+  } catch (error) {
+      res.status(400).send(error);
+  }
+});
+
+app.post('/api/users/register', async (req, res) => {
+  try {
+      const { username, password } = req.body;
+      const existingUser = await User.findOne({ username });
+      if (existingUser) {
+          return res.status(400).send({ error: 'Username already exists' });
+      }
+      const user = new User({ username, password });
+      await user.save();
+      const token = jwt.sign({ _id: user._id }, 'secretkey', { expiresIn: '1h' });
+      res.send({ token });
+  } catch (error) {
+      res.status(400).send(error);
+  }
+});
+
+
 // Route pour récupérer les matériaux
 app.get('/api/materials', async (req, res) => {
     try {
@@ -43,7 +83,7 @@ app.get('/api/materials', async (req, res) => {
 app.get('/api/furnitures', async (req, res) => {
   try {
     const furnitures = await Furniture.find().populate('materialsId');
-    console.log(furnitures);
+    //console.log(furnitures);
     res.json(furnitures);
   } catch (err) {
     res.status(500).send(err);
