@@ -1,0 +1,27 @@
+// .container-tableau{
+//     flex: 1 1 auto; 
+//     max-width: auto;
+//     box-sizing: border-box; 
+//     padding-left: 20px;
+// }
+.tableau-real{
+    max-height: 350px;
+    width: 100%;
+    table-layout: fixed;
+    overflow-y: scroll;
+}
+.tableau-real table {
+    width: 100%; 
+}
+.tableau-real th,
+.tableau-real td {
+    padding: 5px 10px;
+    min-width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    overflow: hidden;
+    border-bottom: 0.5px solid grey;
+}
+.grande-col{
+    width: 400px;
+}

@@ -1,6 +1,11 @@
 .container-furniture-type{
+    flex: 0 0 30%;
+    max-width: 30%;
+    box-sizing: border-box;
+}
+.card-furniture-type{
     height: 150px;
-    width: 250px;
+    // width: 250px;
     margin-bottom: 20px;
 }
 
@@ -14,24 +19,24 @@ h2{
 }
 
 .rayure{
-    background: linear-gradient(45deg, black 1%, white 1%, white 49%, black 49%, black 51%, white 51%, white 99%, black 99%);
+    background: linear-gradient(45deg, white 1%, #d14334 1%, #d14334 49%, white 49%, white 51%, #d14334 51%, #d14334 99%, white 99%);
     background-size: 20px 20px;
     background-position: 50px 50px;
 }
 .rayure-small{
-    background: linear-gradient(45deg, black 1%, #fff 1%, #fff 49%, black 49%, black 51%, #fff 51%, #fff 99%, black 99%);
+    background: linear-gradient(45deg, white 1%, #d14334 1%, #d14334 49%, white 49%, white 51%, #d14334 51%, #d14334 99%, white 99%);
     background-size: 6px 6px;
     background-position: 50px 50px;
 }
 .poid{
-    background-color: white;
-    background-image: radial-gradient(circle, black 10%, white 10%), radial-gradient(circle, black 10%, white 10%);
+    background-color: #34495E;
+    background-image: radial-gradient(circle, white 10%, #34495E 10%), radial-gradient(circle, white 10%, #34495E 10%);
     background-size: 20px 20px;
     background-position: 0 0, 50px 50px;
 }
 .poid-small{
-    background-color: #fff;
-    background-image: radial-gradient(circle, black 6%, transparent 10%), radial-gradient(circle, black 6%, transparent 10%);
+    background-color: #34495E;
+    background-image: radial-gradient(circle, white 6%, transparent 10%), radial-gradient(circle, white 6%, transparent 10%);
     background-size: 10px 10px;
     background-position: 0 0, 50px 50px;
 }
@@ -39,7 +44,8 @@ h2{
 // telephone
 @media (min-width: 0px) and (max-width: 768px) {
     .container-furniture-type{
-        width: 95%;
+        flex: 0 0 100%;
+        max-width: 100%;
 
     }
 }

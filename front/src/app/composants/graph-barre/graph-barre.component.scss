@@ -1,0 +1,16 @@
+.container-graph{
+    margin-left: 20px;
+    height:auto; 
+    width:55vw ;
+    background-color: white;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: #00000026 1.95px 1.95px 2.6px;
+}
+
+// telephone
+@media (min-width: 0px) and (max-width: 768px) {
+    .container-graph{
+        width:80vw ;
+    }
+}

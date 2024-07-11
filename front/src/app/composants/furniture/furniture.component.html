@@ -1,20 +1,25 @@
-<section class="marges">
-    <article class="card">
+<article class="container-tableau">
+    <div class="card">
         <h3 class="titre-article">Réalisations</h3>
-        <table>
+        <div>
+            <button (click)="getAllFurnitures()">Tous</button>
+            <button (click)="getArmoires()">Armoires</button>
+            <button (click)="getEtageres()">Étagères</button>
+        </div>
+        <table class="tableau-real">
             <thead>
                 <tr style="background-color: rgb(211, 216, 216);">
-                    <th scope="col" style="width: 15%;">Nom</th>
-                    <th scope="col" style="width: 10%; padding: 0px 20px;">Type</th>
-                    <th scope="col" style="width: 60%;">Matière</th>
-                    <th scope="col" style="width: 5%; padding: 0px 20px;">Quantité</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Type</th>
+                    <th scope="col" class="grande-col">Matière</th>
+                    <th scope="col">Quantité</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let furniture of furnitures">
-                    <th scope="row" style="text-align: left; padding: 0px 10px;">{{ furniture.name }}</th>
-                    <td style="text-align: center; padding: 0px 10px;">{{ furniture.category }}</td>
-                    <td class="cote-cote" style="padding: 0px 10px;">
+                    <th scope="row" style="text-align: left;">{{ furniture.name }}</th>
+                    <td style="text-align: center;">{{ furniture.category }}</td>
+                    <td class="cote-cote grande-col">
                         <div *ngFor="let material of furniture.materialsId" class="cote-cote">
                             <div class="rectangle" [ngStyle]="{'background': material.color}"></div>
                             <p style="margin-right: 8px;">{{ material.label }}</p>
@@ -23,6 +28,44 @@
                     <td style="text-align: center;">{{ furniture.quantity }}</td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row" colspan="3" style="text-align: right;">Nombre total de réalisation :</th>
+                    <td colspan="1" style="text-align: center;">{{ totalQuantity }}</td>
+                </tr>
+            </tfoot>
         </table>
-    </article>
-</section>
+
+
+        <!-- 
+        <div *ngIf="furnitures.length > 0">
+            <ul>
+                <li *ngFor="let furniture of furnitures">
+                    {{ furniture.name }} ({{ furniture.category }})
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="furnitures.length === 0">
+            Aucun meuble trouvé.
+        </div> -->
+    </div>
+</article>
+<article class="card" style="margin: 20px;">
+    <div>
+        <h3>Nombre d'ocurrence de matière par Armoire</h3>
+        <ul>
+            <li *ngFor="let materialId of materialUsage | keyvalue">
+                id de la matière : {{ materialId.key }} - utilisée {{ materialId.value }} fois
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Nombre d'ocurrence de matière par Etageres</h3>
+        <ul>
+            <li *ngFor="let materialId of materialUsageInEtageres | keyvalue">
+                id de la matière : {{ materialId.key }} - utilisée {{ materialId.value }} fois
+            </li>
+        </ul>
+    </div>
+</article>

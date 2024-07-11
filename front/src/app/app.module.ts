@@ -5,6 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { GraphBarreComponent } from './composants/graph-barre/graph-barre.component';
 import { FurnitureService } from "./services/furniture.service";
 import { MaterialService } from './services/material.service';
 import { AppRoutesModule } from './app.routes';
@@ -18,10 +19,12 @@ import { AppRoutesModule } from './app.routes';
     RouterModule,
     HttpClientModule,
     AppRoutesModule,
+    
   ],
   providers: [
     FurnitureService,
     MaterialService,
+    GraphBarreComponent,
   ],
 
 })
