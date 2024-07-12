@@ -1,0 +1,29 @@
+<article class="card" style="margin-top: 20px;">
+    <h3>Ajouter une réalisation</h3>
+
+    <form [formGroup]="newFurnitureForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Nom :</label>
+            <input type="text" id="name" formControlName="name">
+        </div>
+        <div>
+            <label for="category">Categorie :</label>
+            <select id="category" formControlName="category">
+                <option value="armoire">Armoire</option>
+                <option value="etagere">Etagere</option>
+            </select>
+        </div>
+        <div>
+            <label>Materiaux :</label>
+            <div *ngFor="let material of materials">
+                <input type="checkbox" [id]="material._id" [value]="material._id" formControlName="materialsId">
+                <label [for]="material._id">{{material.label}}</label>
+            </div>
+        </div>
+        <div>
+            <label for="quantity">Quantité :</label>
+            <input type="number" id="quantity" formControlName="quantity">
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+</article>

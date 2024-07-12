@@ -90,6 +90,17 @@ app.get('/api/furnitures', async (req, res) => {
   }
 });
 
+// route pour ajouter un meuble
+app.post('/api/furnitures', async (req, res) => {
+  try {
+    const newFurniture = new Furniture(req.body);
+    await newFurniture.save();
+    res.status(201).send(furniture);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

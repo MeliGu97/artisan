@@ -49,7 +49,7 @@ export class GraphBarreComponent implements OnInit {
 
   loadChartData(): void {
     this.furnitureService.getMaterialUsageInArmoires().subscribe(materialUsageInArmoires => {
-      console.log('Les matiere pour les armoires:', materialUsageInArmoires);
+      // console.log('Les matieres pour les armoires:', materialUsageInArmoires);
 
       // Récupère les labels (IDs de matériaux)
       const materialIds = Object.keys(materialUsageInArmoires);
@@ -60,7 +60,7 @@ export class GraphBarreComponent implements OnInit {
 
       // Charge les données pour les étagères après avoir traité les armoires
       this.furnitureService.getMaterialUsageInEtageres().subscribe(materialUsageInEtageres => {
-        console.log('Les matiere pour les etageres:', materialUsageInEtageres);
+        // console.log('Les matieres pour les etageres:', materialUsageInEtageres);
 
         // Combine les labels des étagères avec ceux des armoires
         const allMaterialIds = new Set([...materialIds, ...Object.keys(materialUsageInEtageres)]);
