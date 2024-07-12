@@ -15,10 +15,12 @@
         </div>
         <div>
             <label>Materiaux :</label>
-            <div *ngFor="let material of materials">
-                <input type="checkbox" [id]="material._id" [value]="material._id" formControlName="materialsId">
+            <div *ngFor="let material of materials; let index = index">
+                <input type="checkbox" [id]="material._id" [value]="material._id"
+                    (change)="onCheckboxChange($event, index)">
                 <label [for]="material._id">{{material.label}}</label>
             </div>
+
         </div>
         <div>
             <label for="quantity">Quantité :</label>

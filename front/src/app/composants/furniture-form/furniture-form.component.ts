@@ -58,18 +58,21 @@ export class FurnitureFormComponent implements OnInit {
     });
   }
 
-  onCheckboxChange(e: any) {
-    const materialsArray: FormArray = this.newFurnitureForm.get('materialsId') as FormArray;
 
-    if (e.target.checked) {
-      materialsArray.push(new FormControl(e.target.value));
+  onCheckboxChange(event: any, index: number) {
+    const materialsArray = this.newFurnitureForm.get('materialsId') as FormArray;
+    if (event.target.checked) {
+      materialsArray.push(new FormControl(this.materials[index]._id));
     } else {
-      const index = materialsArray.controls.findIndex(x => x.value === e.target.value);
-      materialsArray.removeAt(index);
+      const idx = materialsArray.controls.findIndex(x => x.value === this.materials[index]._id);
+      materialsArray.removeAt(idx);
     }
   }
 
   onSubmit(): void {
+    if (this.newFurnitureForm.valid) {
+      const materialsIds = this.newFurnitureForm.value.materialsId.filter((id: any) => typeof id === 'string');
+      const furnitureData = { ...this.newFurnitureForm.value, materialsId: materialsIds };
     // this.furnitureService.addFurniture(this.newFurnitureForm.value).subscribe(() => {
     //   this.furnitureService.getFurnitures()
     //   this.newFurnitureForm.reset();
@@ -85,5 +88,6 @@ export class FurnitureFormComponent implements OnInit {
         console.error("Erreur lors de l'ajout d'une furniture", error);
       }
     });
+    }
   }
 }
