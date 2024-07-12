@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const Furniture =  require('./furniture');
 const Material =  require('./material');
@@ -29,28 +31,26 @@ app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
-// Routes pour l'inscription et la connexion
-
 app.post('/api/users/login', async (req, res) => {
   console.log("req.body : ", req.body)
   try {
       const { username, password } = req.body;
-      console.log("username in  : ", username)
       const user = await User.findOne({ username });
-      console.log("user : ", user)
       if (!user) {
-          return res.status(400).send({ error: 'Invalid credentials' });
+          return res.status(400).send({ message: 'Invalid credentials' });
       }
       const isMatch = await bcrypt.compare(password, user.password);
+      console.log("isMatch  : ", isMatch)
       if (!isMatch) {
-          return res.status(400).send({ error: 'Invalid credentials' });
+          return res.status(400).send({ message: 'Invalid credentials' });
       }
       const token = jwt.sign({ _id: user._id }, 'secretkey', { expiresIn: '1h' });
-      res.send({ token });
+      res.header("x-auth-token", token).send({ token });
   } catch (error) {
       res.status(400).send(error);
   }
 });
+
 
 app.post('/api/users/register', async (req, res) => {
   try {

@@ -1,21 +1,56 @@
 <section class="milieu-vert-hori">
-    <article>
-        <div class="login-container">
-            <h1>Connection à l'app Artisan</h1>
-            <form (ngSubmit)="onLogin()">
+    <div class="container">
+        <input type="radio" id="tab1" name="tab" class="radio" checked>
+        <label for="tab1" class="titre-tab">Connection</label>
+
+        <input type="radio" id="tab2" name="tab" class="radio">
+        <label for="tab2" class="titre-tab">Inscription</label>
+        <div class="line"></div>
+
+        <div class="content-container">
+            <!-- onglet 1 -->
+            <div class="content" id="c1">
                 <div>
-                    <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" [(ngModel)]="username" name="username" required>
+                    <h1>Se connecter à l'app Artisan</h1>
+                    <form (ngSubmit)="onLogin()">
+                        <div>
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" id="username" [(ngModel)]="username" name="username" required>
+                        </div>
+                        <div>
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                        </div>
+                        <button type="submit">Se connecter</button>
+
+                        <div *ngIf="error" class="error">
+                            {{ error }}
+                        </div>
+                    </form>
                 </div>
+            </div>
+
+            <!-- Onglet 2 -->
+            <div class="content" id="c2">
                 <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                    <h1>S'inscrire à l'app Artisan</h1>
+                    <form (ngSubmit)="onRegister()">
+                        <div>
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" id="username" [(ngModel)]="username" name="username" required>
+                        </div>
+                        <div>
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                        </div>
+                        <button type="submit">S'inscrire</button>
+
+                        <div *ngIf="error" class="error">
+                            {{ error }}
+                        </div>
+                    </form>
                 </div>
-                <button type="submit">Se connecter</button>
-                <div *ngIf="error" class="error">
-                    {{ error }}
-                </div>
-            </form>
+            </div>
         </div>
-    </article>
+    </div>
 </section>

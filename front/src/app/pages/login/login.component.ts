@@ -23,7 +23,17 @@ export class LoginComponent {
       .subscribe({
         next: () => {},
         error: error => {
-          this.error = 'Mauvais mot de passe ou nom';
+          this.error = 'Nop, mauvais mot de passe ou nom';
+        }
+      });
+  }
+
+  onRegister() {
+    this.authService.register(this.username, this.password)
+      .subscribe({
+        next: () => {},
+        error: error => {
+          this.error = 'Oups une erreur est arrivée';
         }
       });
   }

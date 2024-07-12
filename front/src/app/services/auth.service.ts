@@ -15,19 +15,33 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) {}
 
     login(username: string, password: string): Observable<any> {
-      return this.http.post<{ token: string }>(this.apiUrl + '/login', { username, password })
-          .pipe(
-              tap(response => {
-                  this.token = response.token;
-                  localStorage.setItem('token', this.token);
-                  this.router.navigate(['/home']);
-              }),
-              catchError(error => {
-                  return throwError(() => new Error(error.message || 'An error occurred'));
-              })
-          );
-  }
+        return this.http.post<{ token: string }>(this.apiUrl + '/login', { username, password })
+            .pipe(
+                tap(response => {
+                    this.token = response.token;
+                    localStorage.setItem('token', this.token);
+                    this.router.navigate(['/home']);
+                }),
+                catchError(error => {
+                    return throwError(() => new Error(error.error.message || 'An error occurred'));
+                })
+            );
+    }
 
+
+  register(username: string, password: string): Observable<any> {
+    return this.http.post<{ token: string }>(this.apiUrl + '/register', { username, password })
+        .pipe(
+            tap(response => {
+                this.token = response.token;
+                localStorage.setItem('token', this.token);
+                this.router.navigate(['/home']);
+            }),
+            catchError(error => {
+                return throwError(() => new Error(error.message || 'An error occurred'));
+            })
+        );
+}
 
 
     logout() {

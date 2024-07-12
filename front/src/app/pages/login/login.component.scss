@@ -1,8 +1,5 @@
 .milieu-vert-hori{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 8% 30%;
 }
 h1{
     font-size: 35px;
@@ -18,4 +15,83 @@ button{
 
 .error {
     color: red;
+}
+
+// ----------- Tab -----------
+.radio{display: none;}
+.container {
+    input {
+    //   display: none;
+      &:checked + label {
+        // background: #D2D4D5;
+        font-weight: bold;
+      }
+      @for $i from 1 through 2 {
+        &#tab#{$i}:checked {
+          ~ .line {
+            left: #{($i - 1) * 50%};
+          }
+          ~ .content-container #c#{$i} {
+            display: block;
+          }
+        }
+      }
+    }
+    .titre-tab {
+      display: inline-block;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      line-height: 36px;
+      width: 50%;
+      text-align: center;
+      position: relative;
+      transition: 0.25s ease;
+      cursor: pointer;
+  
+      // au survol
+      &:hover{
+        background: rgb(216, 216, 216);
+      }
+      &::after {
+        content: "";
+        // height: 2px;
+        // width: 100%;
+        position: relative;
+        // display: block;
+        // background: #27A4D0;
+        opacity: 0;
+        transition: 0.25s ease;
+  
+      }
+      &:hover::after {
+        opacity: 1;
+        
+      }
+    }
+    .line {
+      position:relative;
+      height: 3px;
+      background: #437C90;
+      width: 50%;
+      left: 0;
+      transition: 0.25s ease;
+    }
+  
+    .content-container {
+      position: relative;
+      .content {
+        position: absolute;
+        width: 100%;
+        top: 10px;
+        display: none;
+        transition: 0.25s ease;
+      }
+    }
+  }
+
+  // telephone
+@media (min-width: 0px) and (max-width: 768px) {
+    .milieu-vert-hori{
+        margin: 8% 10%;
+    }
 }
