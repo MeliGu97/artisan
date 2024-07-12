@@ -1,0 +1,17 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>660</x><y>240</y><w>210</w><h>90</h></coordinates><panel_attributes>User
+--
+- id: Long {composite}
+- username : String
+- password : String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>500</x><y>370</y><w>210</w><h>110</h></coordinates><panel_attributes>Material
+--
+- id: Long {composite}
+- label: String
+- company: String
+- color : String
+- description : String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>790</x><y>370</y><w>210</w><h>110</h></coordinates><panel_attributes>Furniture
+--
+- id: Long {composite}
+- name: String
+- category: String
+- quantity: Number
+- materialsId: array Id</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>390</y><w>110</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>90;70;10;10</additional_attributes></element></diagram>
